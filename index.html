@@ -26,9 +26,9 @@ body {
     z-index: 10;
 }
 
-h1 {
+h1, h2 {
     color: #ff4d6d;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 p {
@@ -64,7 +64,7 @@ button:disabled {
     bottom: 0;
     font-size: 30px;
     animation: subir 2s linear;
-    pointer-events: none; /* 👈 CLAVE */
+    pointer-events: none;
 }
 
 @keyframes subir {
@@ -101,13 +101,12 @@ btnSi.addEventListener("click", () => {
 
     contenedor.innerHTML = `
         <h2>¡Gracias por aceptar! 💕</h2>
-        <p> Sos la personita mas linda que tengo 💌</p>
+        <p>Sos la personita más linda que tengo</p>
         <p>Pronto te llegará una propuesta 💌</p>
         <p><strong>Te amo ❤️</strong></p>
     `;
 
-    const mensaje = " Mar Dijo que sí. Tienen una cita el sabado 14 de febrero ";
-
+    const mensaje = "Mar dijo que sí, tienen una cita el sábado 14.";
 
     const url =
         "https://wa.me/5491155123190?text=" +
