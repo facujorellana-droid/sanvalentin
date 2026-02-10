@@ -5,6 +5,9 @@
 <title>San Valentín 💘</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Google Font romántica -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
@@ -22,18 +25,27 @@ body {
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    max-width: 340px;
+    max-width: 360px;
     z-index: 10;
 }
 
-h1, h2 {
+h1 {
     color: #ff4d6d;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-p {
+.mensaje-principal {
+    font-family: 'Pacifico', cursive;
+    font-size: 34px;
+    color: #ff4d6d;
+    margin-bottom: 10px;
+}
+
+.texto-secundario {
+    font-style: italic;
     font-size: 18px;
     color: #444;
+    margin-bottom: 10px;
 }
 
 button {
@@ -59,6 +71,7 @@ button:disabled {
     cursor: not-allowed;
 }
 
+/* Corazones */
 .corazon {
     position: fixed;
     bottom: 0;
@@ -70,6 +83,38 @@ button:disabled {
 @keyframes subir {
     from { transform: translateY(0); opacity: 1; }
     to { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Fecha */
+.fecha {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    background: #fff0f5;
+    border: 2px dashed #ff4d6d;
+    animation: aparecer 1.2s ease forwards;
+}
+
+.fecha h3 {
+    margin: 0;
+    color: #ff4d6d;
+}
+
+.fecha span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 </style>
 </head>
@@ -100,9 +145,21 @@ btnSi.addEventListener("click", () => {
     lanzarCorazones();
 
     contenedor.innerHTML = `
-        <h2>¡Gracias por aceptar! 💕</h2>
-        <p>Sos la personita más linda que tengo</p>
-        <p>Pronto te llegará una propuesta 💌</p>
+        <div class="mensaje-principal">
+            ¡Gracias por aceptar! ❤️😍
+        </div>
+
+        <div class="texto-secundario">
+            Sos la personita más linda que tengo,<br>
+            pronto te llegará una propuesta.
+        </div>
+
+        <div class="fecha">
+            <h3>📅 Reservá este día</h3>
+            <span>Sábado 14 de febrero</span>
+            <div>💖✨</div>
+        </div>
+
         <p><strong>Te amo ❤️</strong></p>
     `;
 
