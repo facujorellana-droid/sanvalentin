@@ -22,11 +22,17 @@ body {
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    max-width: 320px;
 }
 
 h1 {
     color: #ff4d6d;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    color: #444;
 }
 
 button {
@@ -63,20 +69,28 @@ button {
 
 <body>
 
-<div class="card">
+<div class="card" id="contenedor">
     <h1>¿Querés ser mi San Valentín? 💖</h1>
     <button id="si">Sí 💘</button>
     <button id="no">No 😅</button>
 </div>
 
 <script>
+const contenedor = document.getElementById("contenedor");
+
 document.getElementById("si").addEventListener("click", () => {
     lanzarCorazones();
 
+    contenedor.innerHTML = `
+        <h1>¡Gracias por aceptar! 💕</h1>
+        <p>Pronto te llegará una propuesta 💌</p>
+        <p><strong>Te amo ❤️</strong></p>
+    `;
+
     setTimeout(() => {
         window.location.href =
-        "https://wa.me/5491155123190?text=¡Dije%20que%20sí!%20❤️💘🥰%20Pronto%20recibirás%20una%20propuesta";
-    }, 1500);
+        "https://wa.me/5491155123190?text=¡Dijo%20que%20sí!%20❤️💘🥰";
+    }, 3000);
 });
 
 document.getElementById("no").addEventListener("click", () => {
@@ -84,7 +98,7 @@ document.getElementById("no").addEventListener("click", () => {
 });
 
 function lanzarCorazones() {
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 30; i++) {
         const c = document.createElement("div");
         c.className = "corazon";
         c.innerHTML = "❤️";
@@ -97,4 +111,5 @@ function lanzarCorazones() {
 
 </body>
 </html>
+
 
