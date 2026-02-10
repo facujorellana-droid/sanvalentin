@@ -23,6 +23,7 @@ body {
     text-align: center;
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     max-width: 340px;
+    z-index: 10;
 }
 
 h1 {
@@ -63,6 +64,7 @@ button:disabled {
     bottom: 0;
     font-size: 30px;
     animation: subir 2s linear;
+    pointer-events: none; /* 👈 CLAVE */
 }
 
 @keyframes subir {
@@ -104,7 +106,7 @@ btnSi.addEventListener("click", () => {
     `;
 
     const mensaje =
-`¡Dije que sí! 💌`;
+`¡Dije que sí!❤️`;
 
     const url =
         "https://wa.me/5491155123190?text=" +
