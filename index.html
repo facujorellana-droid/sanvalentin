@@ -53,6 +53,11 @@ button {
     background: #ccc;
 }
 
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .corazon {
     position: fixed;
     bottom: 0;
@@ -77,46 +82,7 @@ button {
 
 <script>
 const contenedor = document.getElementById("contenedor");
-
-document.getElementById("si").addEventListener("click", () => {
-    lanzarCorazones();
-
-    contenedor.innerHTML = `
-        <h1>¡Gracias por aceptar! 💕</h1>
-        <p>Pronto te llegará una propuesta 💌</p>
-        <p><strong>Te amo ❤️</strong></p>
-    `;
-
-    const mensaje = "¡Dije que sí!❤️\nGracias por aceptar.\nPronto te llegará una propuesta.\nTe amo ❤️";
-
-    const url =
-        "https://wa.me/5491155123190?text=" +
-        encodeURIComponent(mensaje);
-
-    setTimeout(() => {
-        window.location.href = url;
-    }, 3000);
-});
-
-document.getElementById("no").addEventListener("click", () => {
-    alert("😏 No acepto un no como respuesta");
-});
-
-function lanzarCorazones() {
-    for (let i = 0; i < 30; i++) {
-        const c = document.createElement("div");
-        c.className = "corazon";
-        c.innerHTML = "❤️";
-        c.style.left = Math.random() * 100 + "vw";
-        document.body.appendChild(c);
-        setTimeout(() => c.remove(), 2000);
-    }
-}
-</script>
-
-</body>
-</html>
-
-
+const btnSi = document.getElementById("si");
+cons
 
 
