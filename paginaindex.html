@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>San Valentín 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #7b6cff, #5f4fd8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .card {
+      background: #f9f9fb;
+      border-radius: 25px;
+      padding: 40px 30px;
+      width: 360px;
+      text-align: center;
+      box-shadow: 0 0 0 6px #ff5c8a, 0 0 0 12px #ff8fb3;
+    }
+
+    h1 {
+      color: #ff2d68;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 22px;
+      margin: 10px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .yes {
+      background: #ff5c8a;
+      color: white;
+    }
+
+    .no {
+      background: #ddd;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .message h2 {
+      color: #ff2d68;
+    }
+
+    .hearts {
+      font-size: 26px;
+      margin-top: 15px;
+      animation: float 2s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <div id="question">
+      <h1>¿Querés ser mi San Valentín? 💘</h1>
+      <button class="yes" onclick="accept()">Sí</button>
+      <button class="no" onclick="moveNo()">No</button>
+    </div>
+
+    <div id="result" class="message hidden">
+      <h2>¡Gracias por aceptar! 💕</h2>
+
+      <!-- 🔴 ACÁ PODÉS MODIFICAR
