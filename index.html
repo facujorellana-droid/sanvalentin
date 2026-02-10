@@ -83,6 +83,55 @@ button:disabled {
 <script>
 const contenedor = document.getElementById("contenedor");
 const btnSi = document.getElementById("si");
-cons
+const btnNo = document.getElementById("no");
+
+let yaEnviado = false;
+
+btnSi.addEventListener("click", () => {
+
+    if (yaEnviado) return;
+    yaEnviado = true;
+
+    btnSi.disabled = true;
+    btnNo.disabled = true;
+
+    lanzarCorazones();
+
+    contenedor.innerHTML = `
+        <h1>¡Gracias por aceptar! 💕</h1>
+        <p>Pronto te llegará una propuesta 💌</p>
+        <p><strong>Te amo ❤️</strong></p>
+    `;
+
+    const mensaje =
+`¡Dije que sí! 💌`;
+
+    const url =
+        "https://wa.me/5491155123190?text=" +
+        encodeURIComponent(mensaje);
+
+    setTimeout(() => {
+        window.location.href = url;
+    }, 3000);
+});
+
+btnNo.addEventListener("click", () => {
+    alert("😏 No acepto un no como respuesta");
+});
+
+function lanzarCorazones() {
+    for (let i = 0; i < 30; i++) {
+        const c = document.createElement("div");
+        c.className = "corazon";
+        c.innerHTML = "❤️";
+        c.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 2000);
+    }
+}
+</script>
+
+</body>
+</html>
 
 
