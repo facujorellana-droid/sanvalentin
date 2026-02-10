@@ -22,7 +22,7 @@ body {
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    max-width: 320px;
+    max-width: 340px;
 }
 
 h1 {
@@ -82,14 +82,19 @@ document.getElementById("si").addEventListener("click", () => {
     lanzarCorazones();
 
     contenedor.innerHTML = `
-        <h1>¡Gracias por aceptar! 💘💕</h1>
-        <p>Pronto te llegará una propuesta 🥰💌</p>
+        <h1>¡Gracias por aceptar! 💕</h1>
+        <p>Pronto te llegará una propuesta 💌</p>
         <p><strong>Te amo ❤️</strong></p>
     `;
 
+    const mensaje = "¡Dije que sí! ❤️😍\nGracias por aceptar.\nPronto te llegará una propuesta.\nTe amo ❤️";
+
+    const url =
+        "https://wa.me/5491155123190?text=" +
+        encodeURIComponent(mensaje);
+
     setTimeout(() => {
-        window.location.href =
-        "https://wa.me/5491155123190?text=¡Dije%20que%20sí!%20❤️";
+        window.location.href = url;
     }, 3000);
 });
 
@@ -111,8 +116,5 @@ function lanzarCorazones() {
 
 </body>
 </html>
-
-
-
 
 
