@@ -1,47 +1,98 @@
-<script>
-function aceptar() {
-    lanzarCorazones();
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¿Querés ser mi San Valentín? 💘</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    setTimeout(() => {
-        document.body.innerHTML = `
-            <div style="text-align:center; padding:40px; font-family: Arial;">
-                <h1>💖 ¡Gracias por aceptar! 💖</h1>
-                <p style="font-size:18px;">
-                    Proximamente te llegará una propuesta ✨
-                </p>
-            </div>
-        `;
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
 
-        // WhatsApp (cambiá el número)
-        window.location.href = "https://wa.me/5491155123190?text=¡Dije%20que%20sí!%20❤️💘";
-    }, 2000);
-}
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            max-width: 90%;
+        }
 
-function lanzarCorazones() {
-    for (let i = 0; i < 30; i++) {
-        const corazon = document.createElement("div");
-        corazon.innerHTML = "❤️";
-        corazon.style.position = "fixed";
-        corazon.style.left = Math.random() * 100 + "vw";
-        corazon.style.bottom = "-20px";
-        corazon.style.fontSize = (20 + Math.random() * 30) + "px";
-        corazon.style.animation = "flotar 3s linear";
-        document.body.appendChild(corazon);
+        h1 {
+            color: #ff4d6d;
+            margin-bottom: 20px;
+        }
 
-        setTimeout(() => corazon.remove(), 3000);
-    }
-}
-</script>
+        button {
+            font-size: 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
 
-<style>
-@keyframes flotar {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-100vh);
-        opacity: 0;
-    }
-}
-</style>
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        .si {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        .no {
+            background-color: #ccc;
+            color: black;
+        }
+
+        @keyframes subir {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+
+        .corazon {
+            position: fixed;
+            bottom: 0;
+            font-size: 30px;
+            animation: subir 2s linear;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>¿Querés ser mi San Valentín? 💕</h1>
+        <button class="si" onclick="aceptar()">Sí 💖</button>
+        <button class="no" onclick="rechazar()">No 😅</button>
+    </div>
+
+    <script>
+        function aceptar() {
+            lanzarCorazones();
+
+            setTimeout(() => {
+                window.location.href =
+                "https://wa.me/54911XXXXXXXX?text=¡Dije%20que%20sí!%20❤️💘🥰%20Feliz%20San%20Valentín";
+            }, 1500);
+        }
+
+        function rechazar() {
+            alert("😢 No acepto un no como respuesta… probá de nuevo");
+
