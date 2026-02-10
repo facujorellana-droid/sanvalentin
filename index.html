@@ -1,98 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>¿Querés ser mi San Valentín? 💘</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>San Valentín 💘</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            max-width: 90%;
-        }
+.card {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
 
-        h1 {
-            color: #ff4d6d;
-            margin-bottom: 20px;
-        }
+h1 {
+    color: #ff4d6d;
+    margin-bottom: 25px;
+}
 
-        button {
-            font-size: 20px;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 30px;
-            margin: 10px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
+button {
+    font-size: 18px;
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
 
-        button:hover {
-            transform: scale(1.1);
-        }
+#si {
+    background: #ff4d6d;
+    color: white;
+}
 
-        .si {
-            background-color: #ff4d6d;
-            color: white;
-        }
+#no {
+    background: #ccc;
+}
 
-        .no {
-            background-color: #ccc;
-            color: black;
-        }
+.corazon {
+    position: fixed;
+    bottom: 0;
+    font-size: 30px;
+    animation: subir 2s linear;
+}
 
-        @keyframes subir {
-            from {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-100vh);
-                opacity: 0;
-            }
-        }
-
-        .corazon {
-            position: fixed;
-            bottom: 0;
-            font-size: 30px;
-            animation: subir 2s linear;
-        }
-    </style>
+@keyframes subir {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="card">
-        <h1>¿Querés ser mi San Valentín? 💕</h1>
-        <button class="si" onclick="aceptar()">Sí 💖</button>
-        <button class="no" onclick="rechazar()">No 😅</button>
-    </div>
+<div class="card">
+    <h1>¿Querés ser mi San Valentín? 💖</h1>
+    <button id="si">Sí 💘</button>
+    <button id="no">No 😅</button>
+</div>
 
-    <script>
-        function aceptar() {
-            lanzarCorazones();
+<script>
+document.getElementById("si").addEventListener("click", () => {
+    lanzarCorazones();
 
-            setTimeout(() => {
-                window.location.href =
-                "https://wa.me/54911XXXXXXXX?text=¡Dije%20que%20sí!%20❤️💘🥰%20Feliz%20San%20Valentín";
-            }, 1500);
-        }
+    setTimeout(() => {
+        window.location.href =
+        "https://wa.me/5491155123190?text=¡Dije%20que%20sí!%20❤️💘🥰%20Pronto%20recibirás%20una%20propuesta";
+    }, 1500);
+});
 
-        function rechazar() {
-            alert("😢 No acepto un no como respuesta… probá de nuevo");
+document.getElementById("no").addEventListener("click", () => {
+    alert("😏 No acepto un no como respuesta");
+});
+
+function lanzarCorazones() {
+    for (let i = 0; i < 25; i++) {
+        const c = document.createElement("div");
+        c.className = "corazon";
+        c.innerHTML = "❤️";
+        c.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 2000);
+    }
+}
+</script>
+
+</body>
+</html>
 
