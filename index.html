@@ -1,69 +1,47 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>San Valentín 💘</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
-            color: white;
-            text-align: center;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .card {
-            background: rgba(0,0,0,0.25);
-            padding: 30px;
-            border-radius: 20px;
-            max-width: 400px;
-        }
-        button {
-            padding: 12px 25px;
-            font-size: 18px;
-            border: none;
-            border-radius: 30px;
-            margin: 10px;
-            cursor: pointer;
-        }
-        .si {
-            background-color: #ff4d6d;
-            color: white;
-        }
-        .no {
-            background-color: #555;
-            color: white;
-        }
-    </style>
-</head>
-<body>
-
-<div class="card" id="contenido">
-    <h1>¿Querés ser mi San Valentín? 💖</h1>
-    <button class="si" onclick="aceptar()">Sí</button>
-    <button class="no" onclick="rechazar()">No</button>
-</div>
-
 <script>
-    function aceptar() {
-        document.getElementById("contenido").innerHTML = `
-            <h1>💘 Gracias por aceptar 💘</h1>
-            <p>Prometo una cita hermosa, risas y mucho amor.</p>
-        `;
-    }
+function aceptar() {
+    lanzarCorazones();
 
-    function rechazar() {
-        document.getElementById("contenido").innerHTML = `
-            <h1>😢 Bueno…</h1>
-            <p>Igual te voy a invitar a una cita.</p>
+    setTimeout(() => {
+        document.body.innerHTML = `
+            <div style="text-align:center; padding:40px; font-family: Arial;">
+                <h1>💖 ¡Gracias por aceptar! 💖</h1>
+                <p style="font-size:18px;">
+                    Proximamente te llegará una propuesta ✨
+                </p>
+            </div>
         `;
+
+        // WhatsApp (cambiá el número)
+        window.location.href = "https://wa.me/5491155123190?text=¡Dije%20que%20sí!%20❤️💘";
+    }, 2000);
+}
+
+function lanzarCorazones() {
+    for (let i = 0; i < 30; i++) {
+        const corazon = document.createElement("div");
+        corazon.innerHTML = "❤️";
+        corazon.style.position = "fixed";
+        corazon.style.left = Math.random() * 100 + "vw";
+        corazon.style.bottom = "-20px";
+        corazon.style.fontSize = (20 + Math.random() * 30) + "px";
+        corazon.style.animation = "flotar 3s linear";
+        document.body.appendChild(corazon);
+
+        setTimeout(() => corazon.remove(), 3000);
     }
+}
 </script>
 
-</body>
-</html>
-
-
+<style>
+@keyframes flotar {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+</style>
