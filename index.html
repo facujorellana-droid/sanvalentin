@@ -5,28 +5,45 @@
 <title>San Valentín 💘</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Font romántica -->
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
+
+/* Fondo con imagen */
 body {
     margin: 0;
     height: 100vh;
-    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    background: url("https://raw.githubusercontent.com/facujorellana-droid/sanvalentin/main/fa32a64027e9c102ce9a03dab08d3ed9.jpg") no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
+    position: relative;
 }
 
+/* Oscurecer ligeramente el fondo */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    top: 0;
+    left: 0;
+}
+
+/* Tarjeta */
 .card {
-    background: white;
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(6px);
     padding: 30px 40px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
     max-width: 360px;
-    z-index: 10;
+    z-index: 2;
 }
 
 h1 {
@@ -81,118 +98,7 @@ button:disabled {
 }
 
 @keyframes subir {
-    from { transform: translateY(0); opacity: 1; }
-    to { transform: translateY(-100vh); opacity: 0; }
-}
-
-/* Fecha */
-.fecha {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 15px;
-    background: #fff0f5;
-    border: 2px dashed #ff4d6d;
-    animation: aparecer 1.2s ease forwards;
-}
-
-.fecha h3 {
-    margin: 0;
-    color: #ff4d6d;
-}
-
-.fecha span {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-}
-
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-</style>
-</head>
-
-<body>
-
-<div class="card" id="contenedor">
-    <h1>¿Querés ser mi San Valentín? 💖</h1>
-    <button id="si">Sí 💘</button>
-    <button id="no">No 😅</button>
-</div>
-
-<script>
-const contenedor = document.getElementById("contenedor");
-const btnSi = document.getElementById("si");
-const btnNo = document.getElementById("no");
-
-let yaEnviado = false;
-
-btnSi.addEventListener("click", () => {
-
-    if (yaEnviado) return;
-    yaEnviado = true;
-
-    btnSi.disabled = true;
-    btnNo.disabled = true;
-
-    lanzarCorazones();
-
-    contenedor.innerHTML = `
-        <div class="mensaje-principal">
-            ¡Gracias por aceptar! 😍
-        </div>
-
-        <div class="texto-secundario">
-            Sos la personita más linda que tengo,<br>
-            pronto te llegará una propuesta.
-        </div>
-
-        <div class="fecha">
-            <h3>📅 Reservá este día</h3>
-            <span>Sábado 14 de febrero</span>
-            <div>💖✨</div>
-        </div>
-
-        <p><strong>Te amo ❤️</strong></p>
-    `;
-
-    const mensaje = "Mar dijo que sí, tienen una cita el sábado 14.";
-
-    const url =
-        "https://wa.me/5491155123190?text=" +
-        encodeURIComponent(mensaje);
-
-    setTimeout(() => {
-        window.location.href = url;
-    }, 5000);
-});
-
-btnNo.addEventListener("click", () => {
-    alert("😏 No acepto un no como respuesta");
-});
-
-function lanzarCorazones() {
-    for (let i = 0; i < 30; i++) {
-        const c = document.createElement("div");
-        c.className = "corazon";
-        c.innerHTML = "❤️";
-        c.style.left = Math.random() * 100 + "vw";
-        document.body.appendChild(c);
-        setTimeout(() => c.remove(), 2000);
-    }
-}
-</script>
-
-</body>
-</html>
-
+    from { transform: translateY(0); opacity: 1;
 
 
 
